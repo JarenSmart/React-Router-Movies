@@ -11,14 +11,17 @@ const App = () => {
     setSavedList([...savedList, movie]);
   };
 
+  console.log(addToSavedList);
+
   return (
     <div>
       <SavedList list={savedList} />
       <Route exact path="/" component={MovieList} />
       <Route
         exact
-        path="/movies/:itemid"
+        path="/movies/:id"
         render={props => {
+          console.log("props", props);
           return <Movie items={savedList} {...props} />;
         }}
       />
